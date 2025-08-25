@@ -1,0 +1,54 @@
+subfinder -d target.com -o subfinder.txt
+subfinder -d target.com -all -o subfinder_all.txt
+subfinder -dL domains.txt -recursive -o recursive_subs.txt
+subfinder -silent -d target.com
+
+amass enum -passive -d target.com -o amass_passive.txt
+amass enum -active -d target.com -brute -w /path/to/wordlist.txt -o amass_active.txt
+amass enum -brute -d target.com -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt
+amass enum -passive -d target.com -rf resolvers.txt -recursive
+amass enum -d target.com -rf resolvers.txt
+amass track -d target.com -last 2
+
+assetfinder target.com > assetfinder.txt
+assetfinder --subs-only target.com > subs.txt
+
+
+cat final_subs.txt | httpx -o alive_hosts.txt
+cat final_subs.txt | httpx -title -o titles.txt
+cat final_subs.txt | httpx -status-code -content-length
+cat final_subs.txt | httpx -tech-detect
+cat final_subs.txt | httpx -threads 100 -o alive_hosts.txt
+cat final_subs.txt | httpx -ports 80,443,8080,8443
+
+
+go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
+sudo naabu -list ~/Desktop/syfe.com/syfe.txt -p 22,21,9000-9010 -o ~/Desktop/syfe.com/naabu_results.txt
+sudo naabu -list ~/Desktop/syfe.com/syfe.txt -p 22,21,9000-9010 -silent -o results.txt
+
+
+gau target.com > urls.txt
+gau target.com | grep '?' > param_urls.txt
+gau --subs target.com
+
+waybackurls target.com > wayback_urls.txt
+
+# Basic scan for a single URL
+arjun -u https://target.com/endpoint
+# Scan a list of URLs from a file
+arjun -i urls.txt -o params.txt
+
+subfinder -d target.com -silent | httpx -tech-detect -status-code -silent
+cat ~/Desktop/syfe.com/syfe.txt | httprobe > ~/Desktop/syfe.com/alive_hosts.txt
+live check 
+cat ~/Desktop/syfe.com/syfe.txt | httprobe > ~/Desktop/syfe.com/alive_hosts.txt
+                      
+
+
+aws s3 ls s3://bucket/ --no-sign-request
+aws s3 cp s3://bucket/file.txt . --no-sign-request 
+aws s3 cp test.txt s3://bucket/test.txt --no-sign-request
+
+
+
+

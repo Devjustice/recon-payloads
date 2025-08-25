@@ -1,0 +1,31 @@
+ffuf -w /usr/share/dirbuster/wordlists/directory-list-2.3-small.txt -u http://target.com/FUZZ 
+gobuster dir -u http://TARGET -w /usr/share/dirb/wordlists/common.txt
+gobuster dir -u http://TARGET -w /usr/share/seclists/Discovery/Web-Content/raft-large-files.txt -x php
+ffuf -w /usr/share/seclists/Discovery/Web-Content/burp-parameter-names.txt -u http://TARGET/api?FUZZ=test
+ffuf -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -u http://TARGET -H "Host: FUZZ.target.com"
+ffuf -w endpoints.txt -u https://mail.voi.com/api/v1/FUZZ
+
+
+
+
+ffuf -w wordlist.txt -u https://target.com/FUZZ -recursion -recursion-depth 2
+ffuf -w wordlist.txt -u https://target.com/FUZZ -e .php,.bak,.txt,.old
+ffuf -w wordlist.txt -u https://target.com/FUZZ -r
+ffuf -w wordlist.txt -u https://target.com/FUZZ -p 0.5
+ffuf -w wordlist.txt -u https://target.com/FUZZ -fs 2000
+ffuf -w wordlist.txt -u https://target.com/FUZZ -mr "Success"
+ffuf -w wordlist.txt -u https://target.com/FUZZ -H "Host: dev.target.com" -H "Authorization: Bearer token123"
+ffuf -w wordlist.txt -u https://target.com/FUZZ -o results -of all
+
+ffuf -w /path/to/wordlist.txt -u https://target.com/FUZZ
+ffuf -w wordlist.txt -u https://target.com/FUZZ -mc 200,403,500
+ffuf -w wordlist.txt -u https://target.com/api/v1/FUZZ
+ffuf -w usernames.txt -u https://target.com/api/search?user=FUZZ -fs 0
+ffuf -w wordlist.txt -u https://target.com/FUZZ -H "Authorization: Bearer token123"
+
+gobuster dir -u https://target.com -w wordlist.txt -x php,txt,bak
+gobuster dir -u https://target.com -w wordlist.txt --add-slash
+gobuster dir -u https://target.com -w wordlist.txt -r
+gobuster dir -u https://target.com -w wordlist.txt -s 200,204,301,302,307
+gobuster dir -u https://target.com -w wordlist.txt -d 100ms
+gobuster dir -u https://target.com -w wordlist.txt -p http://127.0.0.1:8080
