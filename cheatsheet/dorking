@@ -1,0 +1,41 @@
+Core Operators
+Operator	Description	Example
+site:	Target specific domain/subdomain	site:example.com
+site:dev.example.com
+inurl:	URL contains string	inurl:/admin
+inurl:.php?id=
+intitle:	Page title contains string	intitle:"index of"
+intitle:login
+intext:	Body text contains string	intext:"error"
+intext:"password"
+filetype:	Specific file type	filetype:pdf
+filetype:env
+ext:	File extension	ext:log
+ext:sql
+cache:	Show cached version	cache:example.com
+Boolean Logic
+Operator	Function	Example
+(space)	AND	site:example.com filetype:pdf
+OR	OR	login OR signin
+-	NOT (exclude)	site:example.com -www
+Common Recon Combinations
+text
+site:target.com intitle:login
+site:target.com inurl:/admin
+site:target.com filetype:env
+site:target.com ext:sql
+site:target.com intitle:"index of"
+site:target.com intext:"error"
+site:target.com -inurl:www
+site:target.com inurl:.php?id=
+Pro Tips
+Use "exact phrases" for precise matches
+
+Combine operators for narrow results
+
+Wildcards: site:*.example.com (unreliable)
+
+Test operators individually first
+
+Note: link: and related: operators are deprecated.
+
