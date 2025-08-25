@@ -28,14 +28,69 @@ site:target.com intitle:"index of"
 site:target.com intext:"error"
 site:target.com -inurl:www
 site:target.com inurl:.php?id=
-Pro Tips
-Use "exact phrases" for precise matches
 
-Combine operators for narrow results
 
-Wildcards: site:*.example.com (unreliable)
 
-Test operators individually first
+# Basic reconnaissance
+site:chipotle.com intitle:login
+site:chipotle.com inurl:admin
+site:chipotle.com inurl:login
+site:chipotle.com inurl:auth
 
-Note: link: and related: operators are deprecated.
+# Configuration files
+site:chipotle.com filetype:env
+site:chipotle.com filetype:config
+site:chipotle.com filetype:yml
+site:chipotle.com filetype:yaml
+site:chipotle.com filetype:properties
+
+# Database and sensitive files
+site:chipotle.com filetype:sql
+site:chipotle.com filetype:db
+site:chipotle.com filetype:bak
+
+# Documentation and notes
+site:chipotle.com filetype:txt "password"
+site:chipotle.com filetype:md "admin"
+site:chipotle.com intext:"credentials"
+
+# API endpoints
+site:chipotle.com inurl:api
+site:chipotle.com inurl:v1
+site:chipotle.com inurl:token
+
+# Developer files
+site:chipotle.com inurl:git
+site:chipotle.com filetype:git
+site:chipotle.com inurl:jenkins
+site:chipotle.com inurl:travis
+
+# Error messages (may leak info)
+site:chipotle.com intext:"error"
+site:chipotle.com intext:"exception"
+site:chipotle.com intext:"warning"
+
+# Combined advanced dorks
+site:chipotle.com (intitle:login OR inurl:login)
+site:chipotle.com (filetype:env OR filetype:config)
+site:chipotle.com ("admin" OR "password" OR "credential")
+
+
+
+# Look for common CTF patterns
+site:chipotle.com "flag{"
+site:chipotle.com "CTF{"
+site:chipotle.com "hackthebox"
+site:chipotle.com "tryhackme"
+
+# Check for common admin paths
+site:chipotle.com inurl:/wp-admin
+site:chipotle.com inurl:/administrator
+site:chipotle.com inurl:/phpmyadmin
+site:chipotle.com inurl:/webadmin
+
+# Search for backup files
+site:chipotle.com filetype:bak
+site:chipotle.com filetype:old
+site:chipotle.com filetype:backup
 
